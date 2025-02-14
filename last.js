@@ -24,7 +24,7 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
     const result = await response.text();
     if (response.ok) {
       alert("Data saved successfully!");
-      window.location.href = "your-document.html"; // Redirect to your document
+      window.location.href = "Python CheatSheets.pdf"; // Redirect to your document
     } else {
       alert("Failed to save data: " + result);
     }
