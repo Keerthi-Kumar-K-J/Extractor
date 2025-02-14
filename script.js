@@ -26,8 +26,7 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
 
     const result = await response.json();
     if (response.ok) {
-      alert("Data saved successfully!");
-      // Redirect to the PDF file
+      // Redirect to the PDF file without showing an alert
       window.location.href = "https://allinpython.com/wp-content/uploads/2023/09/Python-Cheat-Sheet.pdf"; // Replace with your PDF URL
     } else {
       alert("Failed to save data: " + (result.error || "Unknown error"));
