@@ -13,7 +13,7 @@ document.getElementById("nextBtn").addEventListener("click", async function (eve
 
   // Send data to SheetDB
   try {
-    const response = await fetch("https://api.sheetdb.io/sheet/ryfvidjjqmoam", {
+    const response = await fetch("https://sheetdb.io/api/v1/ryfvidjjqmoam", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
